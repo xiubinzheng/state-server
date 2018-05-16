@@ -39,5 +39,12 @@ to run the server from the terminal, "npm run start" or "npm run dev"
 
 curl -d "longitude=-121.036133&latitude=41.213799" http://localhost:8080/  
 output: ["California"]
+
 curl -d "longitude=-111.036133&latitude=48.213799" http://localhost:8080/  
 output: ["Montana"]
+
+curl -d "longitude=-999&latitude=99.99" http://localhost:8080/
+output: {"error":"state not found."}
+
+curl -d "" http://localhost:8080/
+{"error":"You must provide both longitude and latitude. "}
