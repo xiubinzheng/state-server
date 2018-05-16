@@ -47,4 +47,4 @@ curl -d "longitude=-999&latitude=99.99" http://localhost:8080/
 output: {"error":"state not found."}
 
 curl -d "" http://localhost:8080/
-{"error":"You must provide both longitude and latitude. "}
+output: {"error":"You must provide both longitude and latitude. "}
