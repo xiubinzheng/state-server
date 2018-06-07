@@ -59,16 +59,19 @@ references:
 https://stackoverflow.com/questions/14527485/find-the-state-given-latitude-and-longitude-coordinates
 https://github.com/substack/point-in-polygon
 */
-function pointInBoundry(x, y, boundries) {
+function pointInBoundry(longitute, latitude, boundries) {
   let inside = false;
   for (let i = 0, j = boundries.length - 1; i < boundries.length; j = i++) {
-    let xi = boundries[i][0],
-      yi = boundries[i][1];
-    let xj = boundries[j][0],
-      yj = boundries[j][1];
+    //console.log('i ', i, 'j ', j);
+    let longituteI = boundries[i][0],
+      latitudeI = boundries[i][1];
+    let longituteJ = boundries[j][0],
+      latitudeJ = boundries[j][1];
 
+    // what the intersect means
+    // x is the longitute, y is the  latitude
     let intersect =
-      yi > y != yj > y && x < (xj - xi) * (y - yi) / (yj - yi) + xi;
+      latitudeI > latitude != latitudeJ > latitude && longitute < (longituteI - longituteI) * (latitude - latitudeI) / (latitudeJ - latitudeI) + longituteI;
     if (intersect) inside = !inside;
   }
   return inside;
